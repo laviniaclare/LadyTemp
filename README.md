@@ -1,2 +1,4 @@
 #LadyTemp
-A wifi enabled BBT fertility tracking device.
+LadyTemp is a wifi enabled BBT fertility tracking device.
+
+Charting basal body temperature (BBT) is a way women can monitor their ovulation cycle and be aware of their fertility. Tracking BBT can be used both as a tool to achieve and/or prevent pregnancy, as well as monitor hormonal health issues such as polycystic ovarian syndrome, thyroid disease, dysmenorrhea, endometriosis, and others. However, to be most useful, BBT must be recorded every morning upon waking, which requires a high level of diligence and commitment. LadyTemp will record and automatically update the user’s daily BBT, and visualize the data collected on a mobile app to inform her of where she is in her cycle. For greater holistic health and lifestyle insights, LadyTemp will integrate with other wearables/hardware platforms, such as Fitbit, Jawbone, and Withings. Finally, anonymized LadyTemp data could potentially be used to study hormonal trends in the general public, such as populations living in areas known to be contaminated with endocrine disruptors.
