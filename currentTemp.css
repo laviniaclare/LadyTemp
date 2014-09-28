@@ -1,0 +1,10 @@
+.demo-placeholder {
+	width: 800px;
+	height: 350px;
+}
+
+h1 {
+	font-family: 'Courgette', cursive;
+	padding-left: 50px;
+	padding-bottom: 20px;
+}

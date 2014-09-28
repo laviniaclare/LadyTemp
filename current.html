@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<title>LadyTemp</title>
+		<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.js"></script>
+		<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+		<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.time.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="graphs.css"/>
+		<link rel="stylesheet" href="currentTemp.css"/>
+		<script src="https://cdn.firebase.com/js/client/1.0.24/firebase.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+	</head>
+<body>
+	<div class="navbar navbar-static-top" id="header">
+	  <h1>LadyTemp</h1>
+	</div>
+	<script type="text/javascript" src="graphs.js"></script> 
+	<div class="demo-container">
+		<div id="placeholder" class="demo-placeholder">
+	</div>
+	</div>
+	<script>
+	// get a reference to the temperature data
+	var LadyTemp = new Firebase("https://ladytemp.firebaseio.com/");
+	var startTime = Math.round(new Date().getTime() / 1000);
+
+	// initialize an empty array that we will fill with more arrays
+	// each subarray will have the format [timestamp, temperatureReading]
+	var timesTemps = new Array();
+	var data = [];
+	var i = 0;
+
+	// read the real-time temperature data from the reference
+	jQuery(window).load(function () {
+		getLadyData();
+    	setTimeout(function () {
+        loadFlot();
+        update();
+    	}, 1000);
+	});
+
+	function loadFlot() {
+		$.plot("#placeholder", [timesTemps], {
+				xaxis: { mode: "time" }
+			});
+	}
+
+	var updateInterval = 30;
+	$("#updateInterval").val(updateInterval).change(function () {
+		var v = $(this).val();
+		if (v && !isNaN(+v)) {
+			updateInterval = +v;
+			if (updateInterval < 1) {
+				updateInterval = 1;
+			} else if (updateInterval > 2000) {
+				updateInterval = 2000;
+			}
+			$(this).val("" + updateInterval);
+		}
+	});
+
+	function getLadyData() {
+		console.log("Getting data...");
+		LadyTemp.on("child_added", function(snapshot) {
+		var allData = snapshot.val()
+		for (var reading in allData) {
+			if (allData.hasOwnProperty(reading)) {
+				timesTemps.push([startTime, allData[reading]]);
+				startTime += 1000;
+			}
+			i++;
+		}
+		console.log(timesTemps);
+	}, function (errorObject) {
+		alert("Reading data failed: " + errorObject.code);
+	});
+		return timesTemps;
+	}
+
+	function update() {
+		$.plot.setData(getLadyData());
+		$.plot.draw();
+		setTimeout(update, updateInterval);
+	};
+
+	</script>
+</body>
+</html>
