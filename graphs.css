@@ -4,8 +4,10 @@
 	width:700px;
 }
 
-/*.test{
-	height:500px;
-	width:500px;
-	background-color: #888;
-}*/
+.page-header{
+	margin-top: 0;
+	background-color: #6681bc;
+	color:white;
+	margin-right: 0;
+	margin-left: 0;
+}
