@@ -1,7 +1,12 @@
 
 .graph-placeholder-one{
 	height:200px;
-	width:100%;
+	width:90%;
+}
+
+.graph-placeholder-two{
+	height:200px;
+	width:90%;
 }
 
 #header {
