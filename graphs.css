@@ -1,7 +1,7 @@
 
 .graph-placeholder-one{
 	height:200px;
-	width:1000px;
+	width:100%;
 }
 
 #header{
@@ -10,4 +10,8 @@
 	color:white;
 	margin-right: 0;
 	margin-left: 0;
+}
+
+.info-text{
+	width:80%;
 }
