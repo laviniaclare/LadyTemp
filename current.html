@@ -37,8 +37,8 @@
 	jQuery(window).load(function () {
 		getLadyData();
     	setTimeout(function () {
-        loadFlot();
-        update();
+	        loadFlot();
+	        update();
     	}, 1000);
 	});
 
@@ -46,7 +46,7 @@
 		$.plot("#placeholder", [timesTemps], {
 				xaxis: { mode: "time" }
 			});
-	}
+	};
 
 	var updateInterval = 30;
 	$("#updateInterval").val(updateInterval).change(function () {
@@ -80,9 +80,25 @@
 		return timesTemps;
 	}
 
+	var plot = $.plot("#placeholder", [ getLadyData() ], {
+		series: {
+			shadowSize: 0	// Drawing is faster without shadows
+		},
+		yaxis: {
+			min: 0,
+			max: 100
+		},
+		xaxis: {
+			show: false
+		}
+	});
+
 	function update() {
-		$.plot.setData(getLadyData());
-		$.plot.draw();
+		console.log("The update function is being called");
+		response = getLadyData();
+		loadFlot();
+		plot.draw();
+		console.log("The update function is being called again");
 		setTimeout(update, updateInterval);
 	};
 
