@@ -7,4 +7,17 @@ h1 {
 	font-family: 'Courgette', cursive;
 	padding-left: 50px;
 	padding-bottom: 20px;
+	color: #fff;
+}
+
+#header {
+	background-color: #2A3A48;
+}
+
+body {
+	background-color: #F2E0C6;
+}
+
+.center-block {
+	width: 700px;
 }
