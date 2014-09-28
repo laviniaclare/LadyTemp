@@ -7,6 +7,5 @@ $(function() {
 			points: {show: true},
 		}],
 		);
-
 		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
 	});
