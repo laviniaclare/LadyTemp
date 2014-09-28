@@ -1,11 +1,11 @@
 $(function() {
-		var xy=[[0,98],[1,98.3],[2,98],[3,98.6],[5,98],[6,98],[8,98.5],[10,98.5],[12,98],[13,98.9],[14,98.2]];
+		var bbt_data=[[0,98],[1,98.3],[2,98],[3,98.6],[4,98],[5,98],[6,98.5],[7,98.5],[8,98],[9,98.9],[10,98.2]];
 
 		$.plot("#placeholder", [{
-			data: xy,
-			lines: { show: true },
-			points: { show: true, radius: 5},
-			grid: {hoverable: true}
+			data: bbt_data,
+			color: '#246f8e',
+			lines: { show: true},
+			points: {show: true},
 		}],{
 			xaxis: {
 				ticks: [0, [1,'1/1/13'], [2,'1/2/13'],
