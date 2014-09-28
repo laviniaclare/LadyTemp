@@ -21,3 +21,12 @@ body {
 .center-block {
 	width: 700px;
 }
+
+#updated_temp {
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	font-size: 40px;
+	padding-top: 25px;
+	text-align: center;
+	color: #A64E55;
+}

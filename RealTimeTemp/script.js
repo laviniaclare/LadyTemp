@@ -14,7 +14,7 @@ function sensorPlot() {
 
 		new_temp = snapshot.val();
 		console.log(new_temp);
-		document.getElementById("updated_temp").innerHTML = new_temp;
+		document.getElementById("updated_temp").innerHTML = "Currently: " + Number((new_temp).toFixed(2));
 		time_read.push(time_in_sec);
 		temp_read.push(new_temp);
 
